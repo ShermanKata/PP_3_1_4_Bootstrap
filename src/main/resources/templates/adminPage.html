@@ -127,7 +127,7 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="mx-auto p-4 text-center fw-bold" style="width: 300px">
-                                            <form th:method="POST" th:action="@{/createNewUser}"
+                                            <form th:method="POST" th:action="@{/admin/createNewUser}"
                                                   th:object="${newUser}">
                                                 <div class="mb-3">
                                                     <label for="firstName" class="label">FirstName</label>
@@ -236,7 +236,7 @@
             <div class="modal-body">
                 <div class="mx-auto p-4 text-center fw-bold" style="width: 300px">
                     <form th:id="'edit_user_form'+${userEdit.getId()}"
-                          th:action="@{/editUser}" th:object="${userEdit}"
+                          th:action="@{/admin/editUser}" th:object="${userEdit}"
                           th:method="PATCH">
                         <div class="mb-3">
                             <label for="id_edit" class="label">ID</label>
@@ -314,7 +314,7 @@
 
 
                     <form th:id="'delete_user_form'+${userDelete.getId()}"
-                          th:action="@{/deleteUser/{id}(id=${userDelete.getId()})}" th:object="${userDelete}"
+                          th:action="@{/admin/deleteUser/{id}(id=${userDelete.getId()})}" th:object="${userDelete}"
                           th:method="DELETE">
                         <div class="mb-3">
                             <label for="id_delete" class="label">ID</label>

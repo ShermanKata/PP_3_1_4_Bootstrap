@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-//@RequestMapping("/admin")
+@RequestMapping("/admin")
 public class AdminController {
     private UserService userService;
     private RoleService roleService;
@@ -23,21 +23,7 @@ public class AdminController {
         this.roleService = roleService;
     }
 
-    @GetMapping("/")
-    public String startPage() {
-        return "redirect:/login";
-    }
-
-    @GetMapping("/login")
-    public String getLoginPage(@RequestParam(value = "error", required = false) String error,
-                               @RequestParam(value = "logout", required = false) String logout,
-                               Model model) {
-        model.addAttribute("error", error != null);
-        model.addAttribute("logout", logout != null);
-        return "login";
-    }
-
-    @GetMapping("/admin")
+    @GetMapping
     public String getAdminPage(Model model, Principal principal, User user) {
         model.addAttribute("user", userService.getUserByUsername(principal.getName()));
         model.addAttribute("users", userService.getListOfUsers());
